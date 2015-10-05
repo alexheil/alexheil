@@ -5,7 +5,9 @@
 <main class="container">
   <section class="project">
 
-    <h1><%= link_to @project.title, @project.project_url %></h1>
+    <div class="two-space center">
+      <h1><%= link_to @project.title, @project.project_url %></h1>
+    </div>
 
     <div class="two">
       <img srcset="<%= @project.image %>" width="100%" height="auto" />

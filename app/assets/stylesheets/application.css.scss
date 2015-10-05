@@ -52,12 +52,16 @@ h1 {
   font-family: $fancy-font;
   font-size: 3em;
   font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
 
 h2 {
   font-family: $fancy-font;
   font-size: 1.5em;
   font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
 
 h3 {
@@ -608,6 +612,10 @@ footer {
     width: 100%;
     text-align: center;
     padding-bottom: 0;
+  }
+
+  .center {
+    text-align: center;
   }
 
   .icon {
