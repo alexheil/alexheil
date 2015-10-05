@@ -1,0 +1,27 @@
+<%= provide(:title,  "All Posts") %>
+
+<%= render 'partials/header' %>
+
+
+<main class="container">
+  <section class="post">
+
+    <% if @posts.any? %>
+      <% @posts.each do |post| %>
+      <section class="three-space">
+        <h2><%= link_to post.title, post_path(post) %></h2>
+        <img class="two-space" srcset="<%= post.image %>" width="100%" height="auto" />
+        <article>
+          <%= sanitize(post.content).split("<h3>").first %>
+        </article>
+        <div class="one-space">
+          <%= link_to "Read more...", post_path(post) %>
+        </div>
+      </section>
+      <% end %>
+    <% else %>
+      There are no posts on this site lol
+    <% end %>
+
+  </section>
+</main>

@@ -1,0 +1,105 @@
+<%= provide(:title,  sanitize(@project.title)) %>
+
+<%= render 'partials/header' %>
+
+<main class="container">
+  <section class="project">
+
+    <h1><%= link_to @project.title, @project.project_url %></h1>
+
+    <div class="two">
+      <img srcset="<%= @project.image %>" width="100%" height="auto" />
+    </div>
+
+    <div class="two">
+      <h3>Project description</h3>
+      <% if @project.start_date.present? %>
+      <div class="one-space">
+        <strong>Start date</strong> - <%= @project.start_date %>
+      </div>
+      <% end %>
+      <% if @project.end_date.present? %>
+      <div class="one-space">
+        <strong>End date</strong> - <%= @project.end_date %>
+      </div>
+      <% end %>
+      <% if @project.hours.present? %>
+      <div class="one-space">
+        <strong>Hours worked</strong> - <%= @project.hours %>
+      </div>
+      <% end %>
+      <article>
+        <%= sanitize(@project.content) %>
+      </article>
+    </div>
+
+    <div class="project-find">
+      <h3>Find this project on...</h3>
+      <% if @project.facebook_url.present? %>
+      <div class="project-find-icon facebook-icon">
+        <%= link_to "", @project.facebook_url, class: "fa fa-facebook" %>
+      </div>
+      <% end %>
+      <% if @project.twitter_url.present? %>
+      <div class="project-find-icon twitter-icon">
+        <%= link_to "", @project.twitter_url, class: "fa fa-twitter"  %>
+      </div>
+      <% end %>
+      <% if @project.tumblr_url.present? %>
+      <div class="project-find-icon tumblr-icon">
+        <%= link_to "", @project.tumblr_url, class: "fa fa-tumblr"  %>
+      </div>
+      <% end %>
+      <% if @project.instagram_url.present? %>
+      <div class="project-find-icon instagram-icon">
+        <%= link_to "", @project.instagram_url, class: "fa fa-instagram"  %>
+      </div>
+      <% end %>
+      <% if @project.youtube_url.present? %>
+      <div class="project-find-icon youtube-icon">
+        <%= link_to "", @project.youtube_url, class: "fa fa-youtube-play" %>
+      </div>
+      <% end %>
+      <% if @project.pinterest_url.present? %>
+      <div class="project-find-icon pinterest-icon">
+        <%= link_to "", @project.pinterest_url, class: "fa fa-pinterest" %>
+      </div>
+      <% end %>
+      <% if @project.github_url.present? %>
+      <div class="project-find-icon github-icon">
+        <%= link_to "", @project.github_url, class: "fa fa-github" %>
+      </div>
+      <% end %>
+      <% if @project.googleplay_url.present? %>
+      <div class="project-find-icon android-icon">
+        <%= link_to "", @project.googleplay_url, class: "fa fa-android"  %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="list">
+      <h3>Share this on...?</h3>
+      <ul>
+        <li>
+          <a href="https://twitter.com/share" class="twitter-share-button" >Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </li>
+      </ul>
+    </div>
+
+    <div class="list">
+      <ul>
+      <% if Project.exists?(@project.id + 1) %>
+          <li>< Next - <%= link_to "#{Project.find(@project.id + 1).title}", project_path(Project.find(@project.id + 1)) %></li>
+        <% else %>
+        <% end %>
+        <% if Project.exists?(@project.id - 1) %>
+          <li><%= link_to "#{Project.find(@project.id - 1).title}", project_path(Project.find(@project.id - 1)) %> -  Previous ></li>
+        <% else %>
+        <% end %>
+      </ul>
+    </div>
+
+  </section>
+</main>
+

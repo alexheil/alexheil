@@ -1,0 +1,129 @@
+<%= render 'partials/home_header' %>
+
+<section class="hero">
+  <div class="home-site-title">
+    alexheil<span class="site-title-thin">rocks</span>
+  </div>
+  <div class="home-site-tagline">
+    made in buffalo
+  </div>
+</section>
+
+<main class="container">
+
+  <% if @posts.any? %>
+
+  <div class="main-title">
+    recent blog posts
+  </div>
+
+    <% @posts.take(3).each do |post| %>
+    <div class="three">
+      <div class="mini-img">
+        <img srcset="<%= post.image %>" width="100%" height="auto" />
+      </div>
+      <div class="mini-title two-space">
+        <%= link_to post.title, post_path(post) %>
+      </div>
+      <div class="two-space">
+        <%= post.description %>
+      </div>
+      <div class="two-space">
+        <%= link_to "Read this post?", post_path(post) %>
+      </div>
+    </div>
+    <% end %>
+
+  <% end %>
+
+  <% if @projects.any? %>
+
+  <div class="main-title">
+    junk I've made recently
+  </div>
+
+    <% @projects.take(3).each do |project| %>
+    <div class="three">
+      <div class="mini-img">
+        <img srcset="<%= project.image %>" width="100%" height="auto" />
+      </div>
+      <div class="mini-title two-space">
+        <%= link_to project.title, project_path(project) %>
+      </div>
+      <div class="two-space">
+        <%= project.description %>
+      </div>
+      <div class="two-space">
+        <%= link_to "View this project?", project_path(project) %>
+      </div>
+    </div>
+    <% end %>
+
+  <% end %>
+
+</main>
+
+<section class="main-find invert">
+  <div class="container padding">
+
+    <div class="main-title">
+      Find me on...
+    </div>
+
+    <div class="five twitter">
+      <a href="https://twitter.com/realalexheil">
+      <div class="icon">
+        <i class="fa fa-twitter"></i>
+      </div>
+      <div class="mini-title">
+        Twitter
+      </div>
+    </a>
+    </div>
+
+    <div class="five instagram">
+      <a href="https://instagram.com/alexheil">
+      <div class="icon">
+        <i class="fa fa-instagram"></i>
+      </div>
+      <div class="mini-title">
+        Instagram
+      </div>
+      </a>
+    </div>
+
+    <div class="five github">
+      <a href="https://github.com/alexheil">
+      <div class="icon">
+        <i class="fa fa-github"></i>
+      </div>
+      <div class="mini-title">
+        GitHub
+      </div>
+      </a>
+    </div>
+
+    <div class="five youtube">
+      <a href="https://www.youtube.com/channel/UCAQlbbgqQuMidIyuzPylAQw">
+      <div class="icon">
+        <i class="fa fa-youtube-play"></i>
+      </div>
+      <div class="mini-title">
+        YouTube
+      </div>
+      </a>
+    </div>
+
+    <div class="five googleplus">
+      <a href="https://plus.google.com/u/0/+AlexHeil">
+      <div class="icon">
+        <i class="fa fa-google-plus"></i>
+      </div>
+      <div class="mini-title">
+        Google+
+      </div>
+      </a>
+    </div>
+
+  </div>
+</section>

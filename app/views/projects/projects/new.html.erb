@@ -1,0 +1,68 @@
+<%= provide(:title,  "New Project") %>
+
+<%= render 'partials/header' %>
+
+<main class="container">
+  <div class="form-container">
+
+    <h2>New Project</h2>
+
+    <%= form_for(@project, url: projects_path) do |f| %>
+      <div class="field">
+        <%= f.text_field :title, placeholder: "title", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :slug, placeholder: "slug", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :image, placeholder: "image", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :description, placeholder: "description", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_area :content, placeholder: "content", class: "text-area" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :start_date, placeholder: "start date", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :end_date, placeholder: "end date", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :hours, placeholder: "hours", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :project_url, placeholder: "project url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :facebook_url, placeholder: "facebook url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :twitter_url, placeholder: "twitter url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :tumblr_url, placeholder: "tumblr url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :googleplay_url, placeholder: "google play url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :instagram_url, placeholder: "instagram url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :github_url, placeholder: "github url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :pinterest_url, placeholder: "pinterest url", class: "text-field" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :youtube_url, placeholder: "youtube url", class: "text-field" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "publish project", class: "submit-button" %>
+      </div>
+    <% end %>
+
+  </div>
+</main>

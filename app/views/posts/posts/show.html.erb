@@ -1,0 +1,42 @@
+<%= provide(:title,  sanitize(@post.title)) %>
+
+<%= render 'partials/header' %>
+
+<main class="container">
+  <section class="post">
+
+    <h2><%=@post.title %></h2>
+
+    <img class="two-space" srcset="<%= @post.image %>" width="100%" height="auto" />
+
+    <span>By Alex Heil. Follow him on Twitter <a href="https://twitter.com/realalexheil">here</a>. <%= link_to "Hello, Alex.", post_path, data: { confirm: "Care for some Mighty Taco?" }, method: :delete if admin_signed_in? %></span>
+
+    <article>
+      <%= sanitize(@post.content) %>
+    </article>
+
+    <div class="list">
+      <h3>Share this on...?</h3>
+      <ul>
+        <li>
+          <a href="https://twitter.com/share" class="twitter-share-button" >Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </li>
+      </ul>
+    </div>
+
+    <div class="list">
+      <ul>
+      <% if Post.exists?(@post.id + 1) %>
+          <li>< Next - <%= link_to "#{Post.find(@post.id + 1).title}", post_path(Post.find(@post.id + 1)) %></li>
+        <% else %>
+        <% end %>
+        <% if Post.exists?(@post.id - 1) %>
+          <li><%= link_to "#{Post.find(@post.id - 1).title}", post_path(Post.find(@post.id - 1)) %> -  Previous ></li>
+        <% else %>
+        <% end %>
+      </ul>
+    </div>
+
+  </section>
+</main>
