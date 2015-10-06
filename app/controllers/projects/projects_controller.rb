@@ -45,7 +45,7 @@ class Projects::ProjectsController < ApplicationController
   private
 
     def project_params
-      params.require(:project).permit(:title, :content, :description, :slug, :image, :project_url, :facebook_url, :twitter_url, :tumblr_url, :googleplay_url, :instagram_url, :snapchat_name, :youtube_url, :github_url, :pinterest_url, :start_date, :end_date, :hours)
+      params.require(:project).permit(:title, :content, :description, :slug, :image, :project_url, :facebook_url, :twitter_url, :tumblr_url, :googleplay_url, :instagram_url, :snapchat_name, :youtube_url, :github_url, :pinterest_url, :start_date, :end_date, :hours, :logo)
     end
 
 end

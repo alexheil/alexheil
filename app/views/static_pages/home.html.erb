@@ -45,7 +45,7 @@
     <% @projects.take(3).each do |project| %>
     <div class="three">
       <div class="mini-img">
-        <img srcset="<%= project.image %>" width="100%" height="auto" />
+        <img srcset="<%= project.logo %>" width="100%" height="auto" />
       </div>
       <div class="mini-title two-space">
         <%= link_to project.title, project_path(project) %>

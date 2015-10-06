@@ -5,6 +5,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :title
       t.string :category
       t.string :slug
+      t.string :logo
       t.string :image
       t.text :description
       t.text :content

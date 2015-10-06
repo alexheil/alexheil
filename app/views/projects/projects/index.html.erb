@@ -10,7 +10,7 @@
       <% @projects.each do |project| %>
       <section class="three-space">
         <h2><%= link_to project.title, project_path(project) %></h2>
-        <img class="two-space" srcset="<%= project.image %>" width="100%" height="auto" />
+        <img class="two-space" srcset="<%= project.logo %>" width="100%" height="auto" />
         <article>
           <%= sanitize(project.description) %>
         </article>
